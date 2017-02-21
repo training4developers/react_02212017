@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { ToolHeader } from './tool-header';
+
 export class ColorTool extends React.Component {
 
     static propTypes = {
@@ -15,7 +17,7 @@ export class ColorTool extends React.Component {
         };
 
         this.onChange = this.onChange.bind(this);
-        this.addColor = this.addColor.bind(this);
+        //this.addColor = this.addColor.bind(this);
     }
 
     onChange(e) {
@@ -26,7 +28,7 @@ export class ColorTool extends React.Component {
 
     }
 
-    addColor() {
+    addColor = () => {
 
         this.setState({
             colorList: this.state.colorList.concat(this.state.newColor),
@@ -38,7 +40,7 @@ export class ColorTool extends React.Component {
     render() {
 
         return <div>
-            <h1>Color Tool</h1>
+            <ToolHeader header="Color Tool" />
             <ul>
                 {this.state.colorList.map(color =>
                     <li>{color}</li>)}
