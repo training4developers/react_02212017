@@ -10,10 +10,12 @@ export class ColorTool extends React.Component {
         super(props);
 
         this.state = {
-            newColor: ''
+            newColor: '',
+            colorList: this.props.colorList.concat(),
         };
 
         this.onChange = this.onChange.bind(this);
+        this.addColor = this.addColor.bind(this);
     }
 
     onChange(e) {
@@ -24,12 +26,21 @@ export class ColorTool extends React.Component {
 
     }
 
+    addColor() {
+
+        this.setState({
+            colorList: this.state.colorList.concat(this.state.newColor),
+            newColor :'',
+        });
+
+    }
+
     render() {
 
         return <div>
             <h1>Color Tool</h1>
             <ul>
-                {this.props.colorList.map(color =>
+                {this.state.colorList.map(color =>
                     <li>{color}</li>)}
             </ul>
             <form>
@@ -39,6 +50,7 @@ export class ColorTool extends React.Component {
                         value={this.state.newColor}
                         onChange={this.onChange} />
                 </div>
+                <button type="button" onClick={this.addColor}>Add Color</button>
             </form>
         </div>;
     }
