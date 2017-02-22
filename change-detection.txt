@@ -1,0 +1,9 @@
+Change Detection
+
+1. Notified that an update occurred <- always, always the result of an asynchronous operation
+
+2. Has a change really actually happened???? <- should component update (Pure Component and Immutable Programming)
+
+3. Make the change <- render, only updates something called the virtual DOM
+
+4. Determines what to update in DOM, and the optimal way to update it??? <- reconciliation (performance advantage over jQuery)
